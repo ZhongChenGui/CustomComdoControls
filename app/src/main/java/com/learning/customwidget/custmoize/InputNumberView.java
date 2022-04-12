@@ -65,6 +65,10 @@ public class InputNumberView extends LinearLayout {
         mValue = view.findViewById(R.id.value);
         mMinusBtn.setEnabled(!mDisable);
         mPlusBtn.setEnabled(!mDisable);
+        if (mBtnBgRes!=-1) {
+            mMinusBtn.setBackgroundResource(mBtnBgRes);
+            mPlusBtn.setBackgroundResource(mBtnBgRes);
+        }
         updateValue();
     }
 
