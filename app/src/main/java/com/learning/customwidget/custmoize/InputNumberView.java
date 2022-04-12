@@ -1,7 +1,9 @@
 package com.learning.customwidget.custmoize;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -13,12 +15,19 @@ import androidx.annotation.Nullable;
 import com.learning.customwidget.R;
 
 public class InputNumberView extends LinearLayout {
+    private static final String TAG = "InputNumberView";
     private TextView mMinusBtn;
     private TextView mPlusBtn;
     private EditText mValue;
 
     private int mCurrentValue = 0;
     private OnNumberChangeListener mOnNumberChangeListener;
+    private int mMax;
+    private int mMin;
+    private int mStep;
+    private int mDefaultValue;
+    private boolean mDisable;
+    private int mBtnBgRes;
 
     public InputNumberView(Context context) {
         this(context, null);
@@ -30,10 +39,27 @@ public class InputNumberView extends LinearLayout {
 
     public InputNumberView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        // 初始化属性
+        initAttrs(context, attrs);
         // 添加view
         initView(context);
         // 设置事件
         setUpEvent();
+    }
+
+    private void initAttrs(Context context, @Nullable AttributeSet attrs) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.InputNumberView);
+        mMax = ta.getInt(R.styleable.InputNumberView_max, 30);
+        mMin = ta.getInt(R.styleable.InputNumberView_min, 0);
+        mStep = ta.getInt(R.styleable.InputNumberView_step, 0);
+        mDefaultValue = ta.getInt(R.styleable.InputNumberView_defaultValue, 0);
+        mDisable = ta.getBoolean(R.styleable.InputNumberView_disable, false);
+        mBtnBgRes = ta.getResourceId(R.styleable.InputNumberView_btnBackground, -1);
+        Log.d(TAG, "initAttrs: mMax is  - > " + mMax);
+        Log.d(TAG, "initAttrs: mMin is  - > " + mMin);
+        Log.d(TAG, "initAttrs: mStep is  - > " + mStep);
+        Log.d(TAG, "initAttrs: mDefaultValue is  - > " + mDefaultValue);
+        Log.d(TAG, "initAttrs: mDisable is  - > " + mDisable);
     }
 
     private void initView(Context context) {
@@ -42,6 +68,63 @@ public class InputNumberView extends LinearLayout {
         mPlusBtn = view.findViewById(R.id.plus_btn);
         mValue = view.findViewById(R.id.value);
         updateValue();
+    }
+
+    public int getBtnBgRes() {
+        return mBtnBgRes;
+
+    }
+
+    public void setBtnBgRes(int btnBgRes) {
+        mBtnBgRes = btnBgRes;
+    }
+
+    public int getMax() {
+        return mMax;
+    }
+
+    public void setMax(int max) {
+        mMax = max;
+    }
+
+    public int getMin() {
+        return mMin;
+    }
+
+    public void setMin(int min) {
+        mMin = min;
+    }
+
+    public int getStep() {
+        return mStep;
+    }
+
+    public void setStep(int step) {
+        mStep = step;
+    }
+
+    public int getDefaultValue() {
+        return mDefaultValue;
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        mDefaultValue = defaultValue;
+    }
+
+    public boolean isDisable() {
+        return mDisable;
+    }
+
+    public void setDisable(boolean disable) {
+        mDisable = disable;
+    }
+
+    public int getCurrentValue() {
+        return mCurrentValue;
+    }
+
+    public void setCurrentValue(int currentValue) {
+        mCurrentValue = currentValue;
     }
 
     private void setUpEvent() {
@@ -68,11 +151,11 @@ public class InputNumberView extends LinearLayout {
         }
     }
 
-    public void setOnNumberChangeListener(OnNumberChangeListener listener){
+    public void setOnNumberChangeListener(OnNumberChangeListener listener) {
         this.mOnNumberChangeListener = listener;
     }
 
-    public interface OnNumberChangeListener{
+    public interface OnNumberChangeListener {
         void onNumberChange(int value);
     }
 }
