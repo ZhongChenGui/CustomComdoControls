@@ -49,9 +49,9 @@ public class InputNumberView extends LinearLayout {
 
     private void initAttrs(Context context, @Nullable AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.InputNumberView);
-        mMax = ta.getInt(R.styleable.InputNumberView_max, 30);
+        mMax = ta.getInt(R.styleable.InputNumberView_max, 0);
         mMin = ta.getInt(R.styleable.InputNumberView_min, 0);
-        mStep = ta.getInt(R.styleable.InputNumberView_step, 0);
+        mStep = ta.getInt(R.styleable.InputNumberView_step, 1);
         mDefaultValue = ta.getInt(R.styleable.InputNumberView_defaultValue, 0);
         this.mCurrentValue = mDefaultValue;
         mDisable = ta.getBoolean(R.styleable.InputNumberView_disable, false);
@@ -133,7 +133,7 @@ public class InputNumberView extends LinearLayout {
             public void onClick(View v) {
                 mCurrentValue -= mStep;
                 mPlusBtn.setEnabled(true);
-                if (mCurrentValue <= mMin){
+                if (mCurrentValue <= mMin && mMin != 0){
                     mCurrentValue = mMin;
                     v.setEnabled(false);
                     if (mOnNumberChangeListener != null) {
@@ -148,7 +148,7 @@ public class InputNumberView extends LinearLayout {
             public void onClick(View v) {
                 mCurrentValue += mStep;
                 mMinusBtn.setEnabled(true);
-                if (mCurrentValue >= mMax){
+                if (mCurrentValue >= mMax && mMax != 0){
                     mCurrentValue = mMax;
                     v.setEnabled(false);
                     if (mOnNumberChangeListener != null) {
