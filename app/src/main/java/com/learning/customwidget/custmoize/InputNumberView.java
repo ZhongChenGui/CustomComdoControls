@@ -53,13 +53,9 @@ public class InputNumberView extends LinearLayout {
         mMin = ta.getInt(R.styleable.InputNumberView_min, 0);
         mStep = ta.getInt(R.styleable.InputNumberView_step, 0);
         mDefaultValue = ta.getInt(R.styleable.InputNumberView_defaultValue, 0);
+        this.mCurrentValue = mDefaultValue;
         mDisable = ta.getBoolean(R.styleable.InputNumberView_disable, false);
         mBtnBgRes = ta.getResourceId(R.styleable.InputNumberView_btnBackground, -1);
-        Log.d(TAG, "initAttrs: mMax is  - > " + mMax);
-        Log.d(TAG, "initAttrs: mMin is  - > " + mMin);
-        Log.d(TAG, "initAttrs: mStep is  - > " + mStep);
-        Log.d(TAG, "initAttrs: mDefaultValue is  - > " + mDefaultValue);
-        Log.d(TAG, "initAttrs: mDisable is  - > " + mDisable);
     }
 
     private void initView(Context context) {
@@ -67,6 +63,8 @@ public class InputNumberView extends LinearLayout {
         mMinusBtn = view.findViewById(R.id.minus_btn);
         mPlusBtn = view.findViewById(R.id.plus_btn);
         mValue = view.findViewById(R.id.value);
+        mMinusBtn.setEnabled(!mDisable);
+        mPlusBtn.setEnabled(!mDisable);
         updateValue();
     }
 
@@ -109,6 +107,8 @@ public class InputNumberView extends LinearLayout {
 
     public void setDefaultValue(int defaultValue) {
         mDefaultValue = defaultValue;
+        mCurrentValue = mDefaultValue;
+        updateValue();
     }
 
     public boolean isDisable() {
@@ -131,14 +131,30 @@ public class InputNumberView extends LinearLayout {
         mMinusBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentValue--;
+                mCurrentValue -= mStep;
+                mPlusBtn.setEnabled(true);
+                if (mCurrentValue <= mMin){
+                    mCurrentValue = mMin;
+                    v.setEnabled(false);
+                    if (mOnNumberChangeListener != null) {
+                        mOnNumberChangeListener.onNumberMin(mMin);
+                    }
+                }
                 updateValue();
             }
         });
         mPlusBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentValue++;
+                mCurrentValue += mStep;
+                mMinusBtn.setEnabled(true);
+                if (mCurrentValue >= mMax){
+                    mCurrentValue = mMax;
+                    v.setEnabled(false);
+                    if (mOnNumberChangeListener != null) {
+                        mOnNumberChangeListener.onNumberMax(mMax);
+                    }
+                }
                 updateValue();
             }
         });
@@ -157,5 +173,9 @@ public class InputNumberView extends LinearLayout {
 
     public interface OnNumberChangeListener {
         void onNumberChange(int value);
+
+        void onNumberMax(int maxValue);
+
+        void onNumberMin(int minValue);
     }
 }

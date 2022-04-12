@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
             public void onNumberChange(int value) {
                 Log.d(TAG, "onNumberChange: value is  - > " + value);
             }
+
+            @Override
+            public void onNumberMax(int maxValue) {
+                Log.d(TAG, "onNumberMax: max value is  -- > " + maxValue);
+            }
+
+            @Override
+            public void onNumberMin(int minValue) {
+                Log.d(TAG, "onNumberMin: min value is  - > " + minValue);
+            }
         });
     }
 }

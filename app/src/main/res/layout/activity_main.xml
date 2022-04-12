@@ -11,10 +11,9 @@
 
     <com.learning.customwidget.custmoize.InputNumberView
         android:id="@+id/input_number"
-        app:max="20"
-        app:min="10"
+        app:max="23"
+        app:min="0"
         app:step="2"
-        app:disable="true"
         app:defaultValue="10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
