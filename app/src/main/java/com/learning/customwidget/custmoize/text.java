@@ -1,2 +1,4 @@
-package com.learning.customwidget.custmoize;public class text {
+package com.learning.customwidget.custmoize;
+
+public class text {
 }
