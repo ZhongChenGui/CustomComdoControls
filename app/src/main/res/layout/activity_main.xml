@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.learning.customwidget.custmoize.InputNumberView
+    <com.learning.customwidget.custmoize.numberinput.InputNumberView
         android:id="@+id/input_number"
         app:max="23"
         app:min="0"
@@ -17,6 +17,12 @@
         app:defaultValue="10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        />
+
+    <com.learning.customwidget.custmoize.loginpage.LoginKeyboard
+        android:id="@+id/num_key_board"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         />
 
 </LinearLayout>

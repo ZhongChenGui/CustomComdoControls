@@ -1,4 +1,4 @@
-package com.learning.customwidget.custmoize;
+package com.learning.customwidget.custmoize.numberinput;
 
 import android.content.Context;
 import android.content.res.TypedArray;

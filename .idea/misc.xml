@@ -5,14 +5,20 @@
       <map>
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_btn_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_btn_right_bg.xml" value="0.1953125" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_key_board_bg.xml" value="0.25416666666666665" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_left.xml" value="0.26564102564102565" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_right.xml" value="0.26564102564102565" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_right_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_input_bg.xml" value="0.26564102564102565" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_key_board_normal.xml" value="0.25416666666666665" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_key_board_press.xml" value="0.25416666666666665" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_pressed_num_btn_left_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_pressed_num_btn_right_bg.xml" value="0.1953125" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_fullscreen.xml" value="0.11155202821869488" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_main2.xml" value="0.10008818342151675" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/input_number_view.xml" value="0.536" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/num_key_board_view.xml" value="0.136" />
       </map>
     </option>
   </component>

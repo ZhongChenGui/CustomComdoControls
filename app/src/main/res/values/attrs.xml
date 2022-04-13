@@ -8,4 +8,22 @@
         <attr name="btnBackground" format="reference"/>
         <attr name="disable" format="boolean"/>
     </declare-styleable>
+
+    <style name="numKeyBoard">
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/selector_num_key_board_bg</item>
+    </style>
+    <declare-styleable name="FullscreenAttrs">
+        <attr name="fullscreenBackgroundColor" format="color" />
+        <attr name="fullscreenTextColor" format="color" />
+    </declare-styleable>
+
 </resources>
