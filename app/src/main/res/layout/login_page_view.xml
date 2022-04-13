@@ -80,9 +80,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:clickable="true"
                     android:paddingEnd="20dp"
                     android:text="获取验证码"
-                    android:clickable="true"
                     android:textColor="@drawable/selector_verify_text_color"
                     android:textSize="20sp" />
 

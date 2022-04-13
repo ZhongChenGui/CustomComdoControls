@@ -3,10 +3,12 @@ package com.learning.customwidget.custmoize.loginpage;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.learning.customwidget.App;
 import com.learning.customwidget.R;
 
 import java.lang.reflect.Field;
@@ -30,6 +33,7 @@ public class LoginPageView extends FrameLayout {
 
     //手机号码的规则
     public static final String REGEX_MOBILE_EXACT = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$";
+    private static final String TAG = "LoginPageView";
 
     private final int SIZE_DEFAULT_VERITY_CODE = 6;
     private int mVerifyCodeSize;
@@ -64,6 +68,31 @@ public class LoginPageView extends FrameLayout {
         disableEditFocus2Keyboard();
         // 处理事件
         initEvents();
+    }
+
+    private int totalTime = 60 * 1000;
+    private int dTime = 1000;
+    private int resetTime = totalTime - dTime;
+
+    /**
+     * 开始计时
+     */
+    private void startCountDown() {
+        Handler handler = App.getHandler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                resetTime -= dTime;
+                if (resetTime > 0) {
+                    handler.postDelayed(this, dTime);
+                    mVerifyCodeBtn.setText("(" + resetTime / 1000 + "秒)");
+                    mVerifyCodeBtn.setEnabled(false);
+                } else {
+                    mVerifyCodeBtn.setText("获取验证码");
+                    mVerifyCodeBtn.setEnabled(true);
+                }
+            }
+        });
     }
 
     private void disableEditFocus2Keyboard() {
@@ -136,6 +165,18 @@ public class LoginPageView extends FrameLayout {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 isAgreementOk = isChecked;
                 updateBtnStatus();
+            }
+        });
+        mVerifyCodeBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mActionListener != null) {
+                    String phoneNum = mPhoneNumberInp.getText().toString().trim();
+                    mActionListener.onSendVerifyCodeClick(phoneNum);
+                    startCountDown();
+                } else {
+                    throw new IllegalArgumentException("your need setOnClickListener");
+                }
             }
         });
     }
