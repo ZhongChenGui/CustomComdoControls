@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@mipmap/user"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="账户登录"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/phone_number_input_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_login_edit_bg"
+                android:drawableLeft="@mipmap/phone"
+                android:drawablePadding="10dp"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
+                android:hint="请输入11位手机号"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="#7e7e7e"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:id="@+id/verify_code_input_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_login_edit_bg"
+                    android:drawableLeft="@mipmap/password"
+                    android:drawablePadding="10dp"
+                    android:hint="请输入验证码"
+                    android:maxLength="6"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="150dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#7e7e7e"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/get_verify_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="20dp"
+                    android:text="获取验证码"
+                    android:clickable="true"
+                    android:textColor="@drawable/selector_verify_text_color"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_toLeftOf="@+id/get_verify_code"
+                    android:background="@drawable/shape_line_bg" />
+
+            </RelativeLayout>
+
+
+            <CheckBox
+                android:id="@+id/sure_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:button="@drawable/selector_check_box_bg"
+                android:text="同意《用户使用协议》"
+                android:textColor="@drawable/selector_check_box_text_color"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/selector_login_btn_bg"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="登录"
+                android:clickable="true"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <com.learning.customwidget.custmoize.loginpage.LoginKeyboardView
+            android:id="@+id/num_key_board"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_weight="2"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

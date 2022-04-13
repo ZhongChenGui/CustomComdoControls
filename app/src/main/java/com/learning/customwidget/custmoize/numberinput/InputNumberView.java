@@ -56,6 +56,7 @@ public class InputNumberView extends LinearLayout {
         this.mCurrentValue = mDefaultValue;
         mDisable = ta.getBoolean(R.styleable.InputNumberView_disable, false);
         mBtnBgRes = ta.getResourceId(R.styleable.InputNumberView_btnBackground, -1);
+        ta.recycle();
     }
 
     private void initView(Context context) {

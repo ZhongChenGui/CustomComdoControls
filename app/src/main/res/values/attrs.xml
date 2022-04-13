@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="InputNumberView">
-        <attr name="max" format="integer"/>
-        <attr name="min" format="integer"/>
-        <attr name="step" format="integer"/>
-        <attr name="defaultValue" format="integer"/>
-        <attr name="btnBackground" format="reference"/>
-        <attr name="disable" format="boolean"/>
+        <attr name="max" format="integer" />
+        <attr name="min" format="integer" />
+        <attr name="step" format="integer" />
+        <attr name="defaultValue" format="integer" />
+        <attr name="btnBackground" format="reference" />
+        <attr name="disable" format="boolean" />
     </declare-styleable>
 
     <style name="numKeyBoard">
@@ -21,9 +21,15 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/selector_num_key_board_bg</item>
     </style>
+
     <declare-styleable name="FullscreenAttrs">
         <attr name="fullscreenBackgroundColor" format="color" />
         <attr name="fullscreenTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LoginPageView">
+        <attr name="verifyCodeSize" format="integer" />
+        <attr name="mainColor" format="color" />
     </declare-styleable>
 
 </resources>

@@ -19,10 +19,16 @@
         android:layout_height="wrap_content"
         />
 
-    <com.learning.customwidget.custmoize.loginpage.LoginKeyboard
-        android:id="@+id/num_key_board"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        />
+    <TextView
+        android:layout_width="100dp"
+        android:text="Login"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:onClick="startLogin"
+        android:layout_margin="20dp"
+        android:background="#638264"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

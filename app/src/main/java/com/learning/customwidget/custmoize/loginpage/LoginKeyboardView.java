@@ -12,19 +12,19 @@ import androidx.annotation.Nullable;
 
 import com.learning.customwidget.R;
 
-public class LoginKeyboard extends LinearLayout implements View.OnClickListener {
+public class LoginKeyboardView extends LinearLayout implements View.OnClickListener {
     private static final String TAG = "LoginKeyboard";
     private OnKeyPressListener mOnKeyPressListener = null;
 
-    public LoginKeyboard(Context context) {
+    public LoginKeyboardView(Context context) {
         this(context, null);
     }
 
-    public LoginKeyboard(Context context, @Nullable AttributeSet attrs) {
+    public LoginKeyboardView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LoginKeyboard(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LoginKeyboardView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // 载入view
         LayoutInflater.from(context).inflate(R.layout.num_key_board_view, this);

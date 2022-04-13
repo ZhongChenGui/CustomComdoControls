@@ -2,27 +2,29 @@ package com.learning.customwidget;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
-import com.learning.customwidget.custmoize.loginpage.LoginKeyboard;
+import com.learning.customwidget.custmoize.loginpage.LoginKeyboardView;
 import com.learning.customwidget.custmoize.numberinput.InputNumberView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private InputNumberView mInputNumberView;
-    private LoginKeyboard mLoginKeyboard;
+//    private LoginKeyboardView mLoginKeyboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mInputNumberView = findViewById(R.id.input_number);
-        mLoginKeyboard = findViewById(R.id.num_key_board);
+//        mLoginKeyboard = findViewById(R.id.num_key_board);
         initEvent();
     }
-    // 处理时间
+    // 处理事件
     private void initEvent() {
         mInputNumberView.setOnNumberChangeListener(new InputNumberView.OnNumberChangeListener() {
             @Override
@@ -40,16 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onNumberMin: min value is  - > " + minValue);
             }
         });
-        mLoginKeyboard.setOnKeyPressListener(new LoginKeyboard.OnKeyPressListener() {
-            @Override
-            public void onNumberPress(int value) {
-                Log.d(TAG, "onNumberPress: click value is   -- > " + value);
-            }
+//        mLoginKeyboard.setOnKeyPressListener(new LoginKeyboardView.OnKeyPressListener() {
+//            @Override
+//            public void onNumberPress(int value) {
+//                Log.d(TAG, "onNumberPress: click value is   -- > " + value);
+//            }
+//
+//            @Override
+//            public void onBackPress() {
+//                Log.d(TAG, "onBackPress: on click back.............");
+//            }
+//        });
+    }
 
-            @Override
-            public void onBackPress() {
-                Log.d(TAG, "onBackPress: on click back.............");
-            }
-        });
+    public void startLogin(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }

@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_check_box_bg.xml" value="0.14010416666666667" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_check_box_text_color.xml" value="0.14010416666666667" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_login_btn_bg.xml" value="0.14010416666666667" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_btn_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_btn_right_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_num_key_board_bg.xml" value="0.25416666666666665" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_verifty_text_color.xml" value="0.13802083333333334" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/selector_verify_text_color.xml" value="0.13802083333333334" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_line_bg.xml" value="0.14010416666666667" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_login_btn_bg_normal.xml" value="0.14010416666666667" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_login_btn_bg_press.xml" value="0.14010416666666667" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_login_edit_bg.xml" value="0.14010416666666667" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_left.xml" value="0.26564102564102565" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_right.xml" value="0.26564102564102565" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_num_btn_right_bg.xml" value="0.1953125" />
@@ -15,9 +24,11 @@
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_pressed_num_btn_left_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/drawable/shape_pressed_num_btn_right_bg.xml" value="0.1953125" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_fullscreen.xml" value="0.11155202821869488" />
-        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_login.xml" value="0.28515625" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_main.xml" value="0.536" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/activity_main2.xml" value="0.10008818342151675" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/input_number_view.xml" value="0.536" />
+        <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/login_page_view.xml" value="0.264" />
         <entry key="..\:/Program Files (x86)/Android/Android_Learning_Project/Android_Customize_Widget/CustomWidget/app/src/main/res/layout/num_key_board_view.xml" value="0.136" />
       </map>
     </option>
