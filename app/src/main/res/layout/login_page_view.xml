@@ -38,10 +38,11 @@
                 android:background="@drawable/shape_login_edit_bg"
                 android:drawableLeft="@mipmap/phone"
                 android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:maxLength="11"
-                android:inputType="number"
                 android:hint="请输入11位手机号"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:windowSoftInputMode="adjustResize|stateHidden|stateUnchanged"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
@@ -63,8 +64,8 @@
                     android:drawableLeft="@mipmap/password"
                     android:drawablePadding="10dp"
                     android:hint="请输入验证码"
-                    android:maxLength="6"
                     android:inputType="number"
+                    android:maxLength="6"
                     android:maxLines="1"
                     android:paddingStart="20dp"
                     android:paddingTop="10dp"
@@ -96,17 +97,31 @@
 
             </RelativeLayout>
 
-
-            <CheckBox
-                android:id="@+id/sure_check_box"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:paddingLeft="15dp"
-                android:button="@drawable/selector_check_box_bg"
-                android:text="同意《用户使用协议》"
-                android:textColor="@drawable/selector_check_box_text_color"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/sure_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/selector_check_box_bg"
+                    android:paddingLeft="15dp"
+                     />
+
+                <TextView
+                    android:id="@+id/agreement_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="同意《用户使用协议》"
+                    android:textColor="@color/colorDisMain"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
 
 
             <TextView
@@ -115,10 +130,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/selector_login_btn_bg"
+                android:clickable="true"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="登录"
-                android:clickable="true"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 

@@ -3,6 +3,7 @@ package com.learning.customwidget.custmoize.loginpage;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -20,6 +21,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,6 +51,9 @@ public class LoginPageView extends FrameLayout {
     private TextView mVerifyCodeBtn;
     private TextView mLoginBtn;
     private CheckBox mCheckBox;
+    private boolean isCountTime;
+    private TextView mAgreementTips;
+    private CountDownTimer mCountDownTimer;
 
     public LoginPageView(@NonNull Context context) {
         this(context, null);
@@ -70,10 +75,12 @@ public class LoginPageView extends FrameLayout {
         initEvents();
     }
 
-    private int totalTime = 60 * 1000;
-    private int dTime = 1000;
-    private int resetTime = totalTime - dTime;
+    private final int DURATION_DEFAULT = 60 * 1000;
+    private final int D_TIME_DEFAULT = 1000;
 
+    private int mDurationTime = DURATION_DEFAULT;
+
+    private int resetTime = mDurationTime;
     /**
      * 开始计时
      */
@@ -82,17 +89,40 @@ public class LoginPageView extends FrameLayout {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                resetTime -= dTime;
+                resetTime -= D_TIME_DEFAULT;
                 if (resetTime > 0) {
-                    handler.postDelayed(this, dTime);
+                    handler.postDelayed(this, D_TIME_DEFAULT);
+                    isCountTime = true;
                     mVerifyCodeBtn.setText("(" + resetTime / 1000 + "秒)");
                     mVerifyCodeBtn.setEnabled(false);
                 } else {
+                    resetTime = mDurationTime;
+                    isCountTime = false;
                     mVerifyCodeBtn.setText("获取验证码");
                     mVerifyCodeBtn.setEnabled(true);
+                    updateBtnStatus();
                 }
             }
         });
+    }
+
+    private void beginCountDown(){
+        isCountTime = true;
+        mVerifyCodeBtn.setEnabled(false);
+        mCountDownTimer = new CountDownTimer(mDurationTime, D_TIME_DEFAULT) {
+
+            public void onTick(long millisUntilFinished) {
+                mVerifyCodeBtn.setText("( " + millisUntilFinished / 1000 + " 秒)");
+            }
+
+            public void onFinish() {
+                isCountTime = false;
+                mVerifyCodeBtn.setText("获取验证码");
+                mVerifyCodeBtn.setEnabled(true);
+                mCountDownTimer = null;
+                updateBtnStatus();
+            }
+        }.start();
     }
 
     private void disableEditFocus2Keyboard() {
@@ -171,15 +201,57 @@ public class LoginPageView extends FrameLayout {
             @Override
             public void onClick(View v) {
                 if (mActionListener != null) {
-                    String phoneNum = mPhoneNumberInp.getText().toString().trim();
-                    mActionListener.onSendVerifyCodeClick(phoneNum);
-                    startCountDown();
+                    mActionListener.onSendVerifyCodeClick(getPhoneNum());
+                    beginCountDown();
                 } else {
                     throw new IllegalArgumentException("your need setOnClickListener");
                 }
             }
         });
+        mLoginBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mActionListener != null) {
+                    mActionListener.onConfirmClick(getVerifyCode(), getPhoneNum());
+                }
+            }
+        });
+
+        mAgreementTips.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "mAgreementTips onClick: ...............");
+                if (mActionListener != null) {
+                    mActionListener.onOpenAgreement();
+                }
+            }
+        });
     }
+
+    public void onVerifyCodeError(){
+        //清空验证码
+        mVerifyCodeInputBox.getText().clear();
+        // 重置倒计时
+        if (isCountTime && mCountDownTimer != null){
+            isCountTime = false;
+            mCountDownTimer.cancel();
+            mCountDownTimer.onFinish();
+        }
+
+    }
+
+    public void onSuccess(){}
+
+
+
+    private String getPhoneNum(){
+        return mPhoneNumberInp.getText().toString().trim();
+    }
+
+    private String getVerifyCode(){
+        return mVerifyCodeInputBox.getText().toString().trim();
+    }
+
 
     private EditText getFocusEdt() {
         View view = this.findFocus();
@@ -197,6 +269,7 @@ public class LoginPageView extends FrameLayout {
         mNumKeyBoard = view.findViewById(R.id.num_key_board);
         mPhoneNumberInp = view.findViewById(R.id.phone_number_input_box);
         mLoginBtn = view.findViewById(R.id.login_btn);
+        mAgreementTips = view.findViewById(R.id.agreement_tips);
         if (mMainColor != -1) {
             mCheckBox.setTextColor(mMainColor);
         }
@@ -210,7 +283,10 @@ public class LoginPageView extends FrameLayout {
     }
 
     private void updateBtnStatus() {
-        mVerifyCodeBtn.setEnabled(isPhoneNum);
+        if (!isCountTime) {
+            mVerifyCodeBtn.setEnabled(isPhoneNum);
+        }
+        mAgreementTips.setTextColor(isAgreementOk ? getResources().getColor(R.color.colorMain):getResources().getColor(R.color.colorDisMain));
         mLoginBtn.setEnabled(isPhoneNum && isAgreementOk && isVerifyCode);
     }
 
@@ -219,6 +295,7 @@ public class LoginPageView extends FrameLayout {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.LoginPageView);
         mVerifyCodeSize = ta.getInt(R.styleable.LoginPageView_verifyCodeSize, SIZE_DEFAULT_VERITY_CODE);
         mMainColor = ta.getResourceId(R.styleable.LoginPageView_mainColor, -1);
+        mDurationTime = ta.getInt(R.styleable.LoginPageView_durationTime, DURATION_DEFAULT);
         ta.recycle();
     }
 
@@ -313,4 +390,11 @@ public class LoginPageView extends FrameLayout {
         }
     }
 
+    public int getDurationTime() {
+        return mDurationTime;
+    }
+
+    public void setDurationTime(int durationTime) {
+        mDurationTime = durationTime;
+    }
 }

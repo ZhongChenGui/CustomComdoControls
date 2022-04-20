@@ -3,6 +3,7 @@ package com.learning.customwidget;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.tv.TvView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,18 +15,17 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private InputNumberView mInputNumberView;
-//    private LoginKeyboardView mLoginKeyboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mInputNumberView = findViewById(R.id.input_number);
-//        mLoginKeyboard = findViewById(R.id.num_key_board);
         initEvent();
     }
     // 处理事件
     private void initEvent() {
+
         mInputNumberView.setOnNumberChangeListener(new InputNumberView.OnNumberChangeListener() {
             @Override
             public void onNumberChange(int value) {
@@ -42,17 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onNumberMin: min value is  - > " + minValue);
             }
         });
-//        mLoginKeyboard.setOnKeyPressListener(new LoginKeyboardView.OnKeyPressListener() {
-//            @Override
-//            public void onNumberPress(int value) {
-//                Log.d(TAG, "onNumberPress: click value is   -- > " + value);
-//            }
-//
-//            @Override
-//            public void onBackPress() {
-//                Log.d(TAG, "onBackPress: on click back.............");
-//            }
-//        });
     }
 
     public void startLogin(View view) {

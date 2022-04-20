@@ -30,6 +30,7 @@
     <declare-styleable name="LoginPageView">
         <attr name="verifyCodeSize" format="integer" />
         <attr name="mainColor" format="color" />
+        <attr name="durationTime" format="integer" />
     </declare-styleable>
 
 </resources>
