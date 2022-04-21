@@ -47,4 +47,8 @@ public class MainActivity extends AppCompatActivity {
     public void startLogin(View view) {
         startActivity(new Intent(this, LoginActivity.class));
     }
+
+    public void startLooping(View view) {
+        startActivity(new Intent(this, LoopingActivity.class));
+    }
 }
